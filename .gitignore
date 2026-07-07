@@ -1,0 +1,8 @@
+# Temporary and environment files
+.gemini/
+scratch/
+replace_map.py
+fix_clarity.py
+bbox.py
+.DS_Store
+Thumbs.db
