@@ -202,42 +202,102 @@ p  { font-size: 1rem; line-height: 1.8; color: var(--text-muted); font-weight: 5
 
 /* ── Page Hero Banner (inner pages) ─────────── */
 .page-hero {
-  padding: 160px 0 80px;
-  background: var(--saffron); /* Saffron background */
+  padding: 155px 0 72px;
+  background: linear-gradient(145deg,
+    #7A1E00 0%,
+    #C03A00 28%,
+    #FF6B00 60%,
+    #FF9F45 100%);
   position: relative;
   overflow: hidden;
 }
+
+/* Radial glow overlay */
 .page-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+  background: radial-gradient(circle at 85% 30%, rgba(255,255,255,0.16) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
 }
-.page-hero-inner { position: relative; z-index: 2; }
-.page-hero h1 { color: var(--white); margin-bottom: 16px; }
-.page-hero .breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.90) !important;
-}
-.page-hero .breadcrumb a { color: var(--white) !important; font-weight: 600; text-decoration: none; border-bottom: 1.5px solid rgba(255,255,255,0.4); transition: var(--transition); }
-.page-hero .breadcrumb a:hover { border-bottom-color: var(--white); }
-.page-hero .breadcrumb span { color: rgba(255,255,255,0.60) !important; }
-.page-hero p {
-  color: rgba(255,255,255,0.95) !important;
-  font-size: 1.05rem !important;
-  line-height: 1.7 !important;
-  font-weight: 500 !important;
-}
+
+/* SVG arc pattern canvas */
 .page-hero-deco {
   position: absolute;
-  right: 80px; bottom: 0;
-  width: 300px; height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,107,0,0.10), transparent 70%);
+  inset: 0;
+  width: 100%; height: 100%;
   pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.page-hero-deco svg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+}
+
+.page-hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Breadcrumb pill row */
+.page-hero .breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  backdrop-filter: blur(12px);
+  border-radius: 50px;
+  padding: 7px 18px;
+  margin-bottom: 22px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.page-hero .breadcrumb a {
+  color: rgba(255,255,255,0.92) !important;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  border-bottom: none !important;
+}
+.page-hero .breadcrumb a:hover { color: var(--white) !important; }
+.page-hero .breadcrumb .bc-sep {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 8px;
+  color: rgba(255,255,255,0.40);
+  font-size: 0.7rem;
+}
+.page-hero .breadcrumb .bc-current {
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+}
+
+.page-hero h1 {
+  color: var(--white);
+  margin-bottom: 14px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.12);
+}
+
+/* Thin white divider under title */
+.page-hero-divider {
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.55);
+  margin: 0 0 16px;
+}
+
+.page-hero p {
+  color: rgba(255,255,255,0.82) !important;
+  font-size: 1rem !important;
+  line-height: 1.75 !important;
+  font-weight: 500 !important;
+  max-width: 580px;
 }
 
 /* ── Navbar ──────────────────────────────────── */
@@ -699,3 +759,23 @@ p  { font-size: 1rem; line-height: 1.8; color: var(--text-muted); font-weight: 5
 .bg-dark-2 { background: #2A2A2A; }
 .bg-off { background: var(--off-white); }
 .w-full { width: 100%; }
+
+/* Thought Leadership section pattern */
+.thought-leadership-section {
+  position: relative;
+  overflow: hidden;
+}
+.thought-leadership-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.038) 1.2px, transparent 1.2px);
+  background-size: 26px 26px;
+  pointer-events: none;
+  z-index: 0;
+}
+.thought-leadership-section .container {
+  position: relative;
+  z-index: 1;
+}
+

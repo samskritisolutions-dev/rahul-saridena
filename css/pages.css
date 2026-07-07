@@ -3,6 +3,7 @@
    ============================================ */
 
 /* ── Hero ────────────────────────────────────── */
+/* ── Hero ─────────────────────────────────────── */
 .hero {
   height: 100vh;
   min-height: 650px;
@@ -10,7 +11,7 @@
   display: flex;
   align-items: stretch;
   overflow: hidden;
-  background: var(--primary); /* Solid BJP Saffron #FF6B00 */
+  background: linear-gradient(135deg, #C94000 0%, #FF6B00 50%, #FF9133 100%);
 }
 .hero .container {
   height: 100%;
@@ -26,14 +27,66 @@
   opacity: 0.15;
   filter: grayscale(100%) brightness(50%);
 }
+
+/* Overlay: diagonal stripe texture — consistent with page-hero */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 80% 30%, rgba(255,255,255,0.12), transparent 60%),
-              linear-gradient(135deg, rgba(255, 107, 0, 0.20) 0%, rgba(255, 107, 0, 0.40) 100%);
+  background-image:
+    repeating-linear-gradient(
+      -55deg,
+      transparent 0px,
+      transparent 36px,
+      rgba(255,255,255,0.04) 36px,
+      rgba(255,255,255,0.04) 37px
+    );
+  pointer-events: none;
+  z-index: 1;
 }
+
+/* Shimmer sweep animation */
 .hero-overlay-bottom {
-  display: none;
+  display: block;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+.hero-overlay-bottom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    108deg,
+    transparent 0%,
+    rgba(255,255,255,0.04) 38%,
+    rgba(255,255,255,0.08) 50%,
+    rgba(255,255,255,0.04) 62%,
+    transparent 100%
+  );
+  animation: hero-shimmer 6s ease-in-out infinite;
+}
+
+/* SVG arc pattern container */
+.hero-arcs {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+@keyframes hero-shimmer {
+  0%   { left: -100%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: 160%; opacity: 0; }
 }
 .hero-inner {
   position: relative;
@@ -572,6 +625,20 @@
   padding: var(--section-pad);
   background: var(--green); /* BJP Green background */
   position: relative;
+  overflow: hidden;
+}
+.key-highlights::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+.key-highlights .container {
+  position: relative;
+  z-index: 1;
 }
 .key-highlights .divider.center {
   background: var(--saffron); /* Saffron divider line for contrast */

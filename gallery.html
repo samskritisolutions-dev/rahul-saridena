@@ -46,14 +46,40 @@
 
   <!-- ── PAGE HERO ──────────────────────────── -->
   <section class="page-hero">
-    <div class="page-hero-deco"></div>
+    <div class="page-hero-deco" aria-hidden="true">
+      <svg viewBox="0 0 1440 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="tech-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.75"/>
+            <circle cx="0" cy="0" r="1.2" fill="rgba(255,255,255,0.18)"/>
+          </pattern>
+        </defs>
+        <!-- Repeating grid -->
+        <rect width="100%" height="100%" fill="url(#tech-grid)" opacity="0.9"/>
+        
+        <!-- Radar/Strategic blueprint rings on right side -->
+        <circle cx="1220" cy="140" r="160" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="1" stroke-dasharray="4 4"/>
+        <circle cx="1220" cy="140" r="110" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <circle cx="1220" cy="140" r="70" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="2 2"/>
+        <circle cx="1220" cy="140" r="30" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.2"/>
+        <line x1="1020" y1="140" x2="1420" y2="140" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        <line x1="1220" y1="-40" x2="1220" y2="320" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+        <!-- Subtle accent on left side -->
+        <circle cx="220" cy="110" r="80" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="6 6"/>
+        <circle cx="220" cy="110" r="40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      </svg>
+    </div>
     <div class="container">
       <div class="page-hero-inner">
-        <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Gallery</span></div>
+        <div class="breadcrumb">
+          <a href="index.html"><i class="ph ph-house-simple" style="margin-right:5px;"></i>Home</a>
+          <span class="bc-sep"><i class="ph ph-caret-right"></i></span>
+          <span class="bc-current">Photo Gallery</span>
+        </div>
         <h1>Photo Gallery</h1>
-        <p style="color:rgba(255,255,255,0.6);max-width:520px;margin-top:12px;">
-          Capturing key moments from events, campaigns, community activities, and milestones in public service.
-        </p>
+        <div class="page-hero-divider"></div>
+        <p>Capturing key moments from events, campaigns, community activities, and milestones in public service.</p>
       </div>
     </div>
   </section>
@@ -797,7 +823,6 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 Dr. Rahul Saridena. All Rights Reserved.</span>
-        <span>Designed with <span style="color:var(--primary)">♥</span> for Telangana</span>
       </div>
     </div>
   </footer>
